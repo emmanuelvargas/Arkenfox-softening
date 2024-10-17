@@ -72,3 +72,6 @@ user_pref("widget.use-xdg-desktop-portal.file-picker", 1);
 //user_pref("widget.use-xdg-desktop-portal.mime-handler", 1);
 //user_pref("widget.use-xdg-desktop-portal.open-uri", 1);
 //user_pref("widget.use-xdg-desktop-portal.settings", 1);
+
+user_pref("network.security.ports.banned.override", "6000");
+user_pref("identity.sync.tokenserver.uri", "http://192.168.0.100:6000/token/1.0/sync/1.5");
