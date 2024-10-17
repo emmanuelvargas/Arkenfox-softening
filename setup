@@ -82,10 +82,10 @@ elif snap list | grep -q firefox; then
     echo "Snap Firefox chosen."
     BASEDIR=~/snap/firefox/current/.mozilla/firefox
     RUNCOMMAND="snap run firefox"
-elif command -v firefox &> /dev/null; then
-     echo "Native Firefox chosen."
-     BASEDIR=~/.mozilla/firefox
-     RUNCOMMAND="firefox"
+# elif command -v firefox &> /dev/null; then
+#      echo "Native Firefox chosen."
+#      BASEDIR=~/.mozilla/firefox
+#      RUNCOMMAND="firefox"
 else
     echo "Firefox is not installed. Exiting script."
     notify-send -t 15000 -a "Arkenfox Setup" "Firefox is not installed?" "If you use Librewolf or MullvadBrowser,\n you dont need this script.\n Otherwise, please file an issue report\! \n Setup cancelled."
