@@ -70,11 +70,11 @@ fi
 # Which version of Firefox is installed? This sets the base string in the other script
 # Leaving out Torbrowser, Librewolf and Mullvad Browser as these are already hardened.
 
-if command -v firefox &> /dev/null; then
-    echo "Native Firefox chosen."
-    BASEDIR=~/.mozilla/firefox
-    RUNCOMMAND="firefox"
-elif flatpak list --app | grep -q org.mozilla.firefox; then
+# if command -v firefox &> /dev/null; then
+#     echo "Native Firefox chosen."
+#     BASEDIR=~/.mozilla/firefox
+#     RUNCOMMAND="firefox"
+if flatpak list --app | grep -q org.mozilla.firefox; then
     echo "Flatpak Firefox chosen."
     BASEDIR=~/.var/app/org.mozilla.firefox/.mozilla/firefox
     RUNCOMMAND="flatpak run org.mozilla.firefox"
@@ -82,6 +82,10 @@ elif snap list | grep -q firefox; then
     echo "Snap Firefox chosen."
     BASEDIR=~/snap/firefox/current/.mozilla/firefox
     RUNCOMMAND="snap run firefox"
+elif command -v firefox &> /dev/null; then
+     echo "Native Firefox chosen."
+     BASEDIR=~/.mozilla/firefox
+     RUNCOMMAND="firefox"
 else
     echo "Firefox is not installed. Exiting script."
     notify-send -t 15000 -a "Arkenfox Setup" "Firefox is not installed?" "If you use Librewolf or MullvadBrowser,\n you dont need this script.\n Otherwise, please file an issue report\! \n Setup cancelled."
