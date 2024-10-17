@@ -78,7 +78,7 @@ if flatpak list --app | grep -q org.mozilla.firefox; then
     echo "Flatpak Firefox chosen."
     BASEDIR=~/.var/app/org.mozilla.firefox/.mozilla/firefox
     RUNCOMMAND="flatpak run org.mozilla.firefox"
-elif snap list | grep firefox; then
+elif snap list | grep -q firefox; then
     echo "Snap Firefox chosen."
     BASEDIR=~/snap/firefox/current/.mozilla/firefox
     RUNCOMMAND="snap run firefox"
