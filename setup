@@ -109,12 +109,12 @@ EOF
 # Get the name of the default directory (Firefox names these randomly, probably against viruses?)
 # Find the file with the name *-default-release
 
-DEFAULTDIR=(*-default-release)
+DEFAULTDIR=(*.MyProfile)
 
 # Copying the currently used profile
 notify-send -t 20000 -a "Arkenfox Setup" "Copying your profile folder..." "Your current profile is not changed\!\n You find it in $BASEDIR, named $DEFAULTDIR.\n Run '$RUNCOMMAND -p $DEFAULTDIR' to launch the profile selection."
 
-cp $DEFAULTDIR/* ARKENFOX
+cp -r $DEFAULTDIR/* ARKENFOX
 
 
 # --------- Profiles.ini configuration ---------
@@ -191,7 +191,7 @@ wget -q https://raw.githubusercontent.com/emmanuelvargas/Arkenfox-softening/main
 echo "Running Arkenfoxes updater"
 notify-send -a "Arkenfox Setup" "Running..." "Running the Arkenfox updater and applying the overrides"
 
-echo "Y" | updater.sh &&\
+echo "Y" | ./updater.sh &&\
 
 # copy result to parent folder (firefox main user directory)
 cp user.js ../
