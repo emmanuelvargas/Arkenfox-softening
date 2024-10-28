@@ -54,16 +54,16 @@ enforce_close(){
 }
 
 # Check for available dialog tools and execute the corresponding function
-if [[ $(command -v kdialog) ]]; then
-    GUIMETHOD="kdialog"
-    kdialog_close
-elif [[ $(command -v zenity) ]]; then
-    GUIMETHID="zenity"
-    zenity_close
-else
+# if [[ $(command -v kdialog) ]]; then
+#     GUIMETHOD="kdialog"
+#     kdialog_close
+# elif [[ $(command -v zenity) ]]; then
+#     GUIMETHID="zenity"
+#     zenity_close
+# else
     GUIMETHOD="notifysend"
     enforce_close
-fi
+# fi
 
 # ------------- Firefox Version detection ----------
 
