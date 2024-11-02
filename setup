@@ -204,7 +204,7 @@ cat > autoupdater <<EOF
 # This script does not much, but update the user.js using the upstream Arkenfox script, using my overrides,
 # and copy that result to the profile folder, override the older user.js
 
-echo "Y" | $ARKDIR/user.js/updater.sh &&\
+cd '$ARKDIR/arkenfoxgit/ && ./updater.sh -s >/dev/null &&\
 cp -f user.js ../
 EOF
 
@@ -249,7 +249,7 @@ Description=Runs the Arkenfox updater, applies your set changes
 Type=simple
 ExecStart=/bin/bash -c '$ARKDIR/arkenfoxgit/autoupdater'
 Restart=always
-RestartSec=60
+RestartSec=360
 
 [Install]
 WantedBy=default.target
